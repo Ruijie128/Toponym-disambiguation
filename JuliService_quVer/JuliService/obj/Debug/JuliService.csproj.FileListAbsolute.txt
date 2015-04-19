@@ -1,0 +1,21 @@
+E:\省市\JuliService\JuliService\bin\Debug\JuliService.exe
+E:\省市\JuliService\JuliService\bin\Debug\JuliService.pdb
+E:\省市\JuliService\JuliService\obj\Debug\JuliService.csprojResolveAssemblyReference.cache
+E:\省市\JuliService\JuliService\obj\Debug\JuliService.exe
+E:\省市\JuliService\JuliService\obj\Debug\JuliService.pdb
+E:\省市\JuliService_quVer\JuliService\obj\Debug\JuliService.exe
+E:\省市\JuliService_quVer\JuliService\obj\Debug\JuliService.pdb
+E:\省市\JuliService_quVer\JuliService\obj\Debug\JuliService.csprojResolveAssemblyReference.cache
+E:\省市\JuliService_quVer\JuliService\bin\Debug\JuliService.exe
+E:\省市\JuliService_quVer\JuliService\bin\Debug\JuliService.pdb
+E:\users\zhang Ruijie\中国省市数据\重名数据\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.exe
+E:\users\zhang Ruijie\中国省市数据\重名数据\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.pdb
+E:\users\zhang Ruijie\中国省市数据\重名数据\JuliService_quVer(1)\JuliService_quVer\JuliService\bin\Debug\JuliService.exe
+E:\users\zhang Ruijie\中国省市数据\重名数据\JuliService_quVer(1)\JuliService_quVer\JuliService\bin\Debug\JuliService.pdb
+E:\users\zhang Ruijie\中国省市数据\重名数据\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.csprojResolveAssemblyReference.cache
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.exe
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.pdb
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\bin\Debug\JuliService.exe
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\bin\Debug\JuliService.pdb
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\obj\Debug\JuliService.csprojResolveAssemblyReference.cache
+E:\JuliService_quVer(2)\JuliService_quVer(1)\JuliService_quVer\JuliService\bin\Debug\MySql.Data.dll
