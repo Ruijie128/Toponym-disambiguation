@@ -1,0 +1,14 @@
+H:\论坛\站内搜索\MSHtmlTest\bin\Debug\MSHtmlTest.exe
+H:\论坛\站内搜索\MSHtmlTest\bin\Debug\MSHtmlTest.pdb
+H:\论坛\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.Properties.Resources.resources
+H:\论坛\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csproj.GenerateResource.Cache
+H:\论坛\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.exe
+H:\论坛\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.pdb
+H:\论坛\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csprojResolveAssemblyReference.cache
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\bin\Debug\MSHtmlTest.exe
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\bin\Debug\MSHtmlTest.pdb
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csprojResolveAssemblyReference.cache
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.Properties.Resources.resources
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csproj.GenerateResource.Cache
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.exe
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Debug\MSHtmlTest.pdb

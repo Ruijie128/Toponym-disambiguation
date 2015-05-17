@@ -1,0 +1,6 @@
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\bin\Release\MSHtmlTest.exe
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\bin\Release\MSHtmlTest.pdb
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Release\MSHtmlTest.Properties.Resources.resources
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Release\MSHtmlTest.csproj.GenerateResource.Cache
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Release\MSHtmlTest.exe
+E:\users\zhang Ruijie\张老师项目\张老师项目\目标识别\站内搜索\MSHtmlTest\obj\x86\Release\MSHtmlTest.pdb
