@@ -5011,3 +5011,96 @@ System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhan
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 2015-05-17 22:35:49,687 [6] DEBUG 站内搜索.Global - Application_End
 2015-05-17 22:36:42,125 [26] DEBUG 站内搜索.Global - Application_End
+2015-05-17 22:52:01,347 [10] DEBUG 站内搜索.Global - Application_End
+2015-05-17 22:54:23,042 [14] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 22:54:53,993 [5] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 22:56:42,456 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-17 22:56:58,891 [13] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:01:26,127 [13] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:02:46,414 [14] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:04:49,425 [11] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:04:56,753 [14] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:04:57,020 [14] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException (0x80004005): DataBinding:“站内搜索.Test.SearchResult”不包含名为“Contentkey”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.createindex_aspx.__DataBind__control11(Object sender, EventArgs e) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx:行号 78
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 站内搜索.CreateIndex.Page_Load(Object sender, EventArgs e) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx.cs:行号 70
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.createindex_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\29b129f5\af2b250\App_Web_14bdrkxe.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-17 23:05:10,848 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:05:24,175 [25] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:06:34,444 [13] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:06:40,859 [14] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:06:53,093 [26] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:08:27,324 [14] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:08:34,135 [13] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:09:13,504 [27] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:09:20,113 [14] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:09:20,219 [14] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 站内搜索.CreateIndex.search(String content) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx.cs:行号 105
+   在 站内搜索.CreateIndex.Page_Load(Object sender, EventArgs e) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx.cs:行号 64
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.createindex_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\29b129f5\af2b250\App_Web_zcahft4v.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-17 23:09:46,303 [27] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:09:51,666 [5] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:13:42,243 [5] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 站内搜索.CreateIndex.search(String content) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx.cs:行号 105
+   在 站内搜索.CreateIndex.Page_Load(Object sender, EventArgs e) 位置 e:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\CreateIndex.aspx.cs:行号 64
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.createindex_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\29b129f5\af2b250\App_Web_zcahft4v.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-17 23:16:00,856 [13] DEBUG 站内搜索.Global - Application_End
+2015-05-17 23:16:06,627 [13] DEBUG 站内搜索.CreateIndex - 开始建立索引
+2015-05-17 23:19:33,811 [13] DEBUG 站内搜索.CreateIndex - 全部索引完毕
+2015-05-17 23:19:34,031 [13] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-17 23:49:24,737 [80] DEBUG 站内搜索.CreateIndex - 开始建立索引
+2015-05-17 23:53:45,685 [80] DEBUG 站内搜索.CreateIndex - 全部索引完毕
+2015-05-17 23:53:45,788 [80] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 01:02:38,771 [97] DEBUG 站内搜索.Global - Application_End

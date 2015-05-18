@@ -1,0 +1,12 @@
+前端文件见frontend文件夹
+	static文件夹中是用到的开源库，主要是用于界面设计的easyui和用于地图显示的openlayers
+	css、img、js文件夹是自己写的，主要是main.js文件中有两处向后端请求数据的地方，这个需要根据你的框架和后端逻辑修改。我已经备注，你可以在文件中搜索“向后端请求请求”。
+	main.html就是界面的html文件，其中引用静态资源的位置，需要按照你使用的框架以及你把css、img、js、static放在哪里进行修改。
+	
+
+后端主要是两个函数，在backend.txt里面
+	第一个函数是请求网格数据，传回一个geojson文件：gridLayer8int.geojson
+    第二个函数是请求倒排索引数据，用到了你给我的数据以及我加工后的数据。
+        sql语句为："SELECT `name`, `fileCount` FROM `militaryfiles`.`geometoryfiles` GF, `sse`.`show_place` SP WHERE GF.geometryID
+        `militaryfiles`.`geometoryfiles`是你传给我的，`sse`.`show_place`是我加工后的数据，已经导出，见show_place.sql
+        

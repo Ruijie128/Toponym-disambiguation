@@ -75,7 +75,7 @@
                 <a href='<%#Eval("Uri") %>'><%#Eval("Uri") %></a>
                 <br />
                 <%#Eval("Score") %>
-            
+                <%#Eval("Title") %>
             </li>
         </ItemTemplate>
         <FooterTemplate>

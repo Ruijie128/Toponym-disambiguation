@@ -60,11 +60,11 @@ namespace 站内搜索
 
 
             int totalCount = -1;
-          //  index(); //暂时注释  不建立索引
+            index(); //暂时注释  不建立索引
             List<SearchResult> list = search(kw);
             
-          //  List<SearchResult> list = DoSearch(startRowIndex,pager.PageSize,out totalCount);
-            pager.TotalCount = 5;
+          //  List<SearchResult> list = DoSearch(startRowIndex,pager.S,out totalCount);
+            pager.TotalCount = 500;
             RenderToHTML = pager.RenderToHTML();
             dataRepeater.DataSource = list;
             dataRepeater.DataBind();
@@ -89,10 +89,11 @@ namespace 站内搜索
             QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
             Query query = parser.Parse(content);
 
-            TopDocs topdocs = search.Search(query, 5);
+            TopDocs topdocs = search.Search(query, 500);
             ScoreDoc[] scoreDocs = topdocs.scoreDocs;
             List<SearchResult> list = new List<SearchResult>();
-            Console.WriteLine("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());
+            logger.Debug("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());
+         //   Console.WriteLine("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());
             for (int i = 0; i < scoreDocs.Length; i++)
             {
                 int doc = scoreDocs[i].doc;
@@ -101,8 +102,9 @@ namespace 站内搜索
                 string number = scoreDocs[i].doc.ToString();
                 string score = scoreDocs[i].score.ToString();
                 string uri = document.Get("link");
+                string title = "标题：" + document.Get("title").ToString() + document.Get("publishtime").ToString();
               //  SearchResult searcher = new SearchResult() { Number = number, Score = score, BodyPreview = Preview(body, kw) };
-                SearchResult searcher = new SearchResult() { Number = number, Score = score, Uri = uri };
+                SearchResult searcher = new SearchResult() { Number = number, Score = score, Uri = uri, Title = title };
                 list.Add(searcher);
             }
             
@@ -151,15 +153,16 @@ namespace 站内搜索
         protected void index()
         {
             //索引库的位置
+            logger.Debug("开始建立索引");
             string indexPath = "E:/index";
             Analyzer analyzer = new PanGuAnalyzer();
             IndexWriter indexwriter = new IndexWriter(indexPath, analyzer, true);
             string conn = "Server=localhost;Port=5432;UserId=postgres;Password=ZHANGRUIJIE;Database=websitedata;";
-            using (DataTable dt = Dao.SqlHelper.ExecuteDataTable("select uri,Content from data_sina "))
+            using (DataTable dt = Dao.SqlHelper.ExecuteDataTable("select uri,content, title,publishtime from data_sina "))
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    indexContent(dr["uri"].ToString(), dr["content"].ToString(), indexwriter);
+                    indexContent(dr["uri"].ToString(), dr["content"].ToString(), dr["title"].ToString(), dr["publishtime"].ToString(), indexwriter);
                    // indexContent(dr["uri"].ToString(), dr["content"].ToString, indexwriter);
                 }
             }
@@ -167,7 +170,7 @@ namespace 站内搜索
             indexwriter.Close();
             logger.Debug("全部索引完毕");
         }
-        private void indexContent(string uri, string content, IndexWriter writer)
+        private void indexContent(string uri, string content, string title, string publishtime, IndexWriter writer)
         {
             try
             {
@@ -183,6 +186,8 @@ namespace 站内搜索
          //       Field indexcontent = new Field("content", contentBy, Field.Store.YES);
                 doc.Add(new Field("link", uri, Field.Store.YES, Field.Index.TOKENIZED));
                 doc.Add(new Field("content", content, Field.Store.YES, Field.Index.TOKENIZED));
+                doc.Add(new Field("title", title, Field.Store.YES, Field.Index.TOKENIZED));
+                doc.Add(new Field("publishtime", publishtime, Field.Store.YES, Field.Index.TOKENIZED));
                // Field[] fs = new Field[]{"uri", "content"};
                // doc.Add(indexlink);
                 //doc.Add(indexcontent);
