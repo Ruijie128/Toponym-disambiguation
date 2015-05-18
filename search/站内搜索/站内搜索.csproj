@@ -206,6 +206,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="SearchSuggestion.ashx" />
+    <Content Include="gridLayer8int.geojson" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

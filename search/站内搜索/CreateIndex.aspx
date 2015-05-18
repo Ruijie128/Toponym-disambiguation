@@ -8,6 +8,20 @@
     <link href="css/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
     <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <!--meta http-equiv='Content-Type' content='text/html; charset=utf-8'-->
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+        
+     <script type="text/javascript" src="static/easyui/js/jquery.min.js"></script>      
+     <script type="text/javascript" src="static/easyui/js/jquery.easyui.min.js"></script>
+     <script type="text/javascript" src="static/easyui/js/easyui-lang-zh_CN.js"></script>
+     <link rel="stylesheet" type="text/css" href="static/easyui/css/easyui-gray.css">
+        
+     <script type="text/javascript" src="static/ol/build/ol-v3.1.1.js"></script>
+     <link rel="stylesheet" type="text/css" href="static/ol/css/ol.css">
+        
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/request.js"></script>
+        <link rel='stylesheet' type='text/css' href="css/main.css" />
     <script type="text/javascript">
         $(function () {
             $("#txtKeyword").autocomplete(
@@ -57,33 +71,73 @@
         <input type="submit" name="searchButton" value="搜索" style="width: 91px" /><br />
     </div>
     <br />
-    <ul id="hotwordsUL">
+    <!--ul id="hotwordsUL">
           <asp:Repeater ID="hotwordsRepeater" runat="server">
             <ItemTemplate>
                 <li><a href='CreateIndex.aspx?kw=<%#Eval("Keyword") %>'><%#Eval("Keyword") %></a></li>
             </ItemTemplate>
           </asp:Repeater>
-    </ul>
+    </!--ul-->
     &nbsp;<br />
   
-    <asp:Repeater ID="dataRepeater" runat="server" EnableViewState="true">
-        <HeaderTemplate>
-            <ul>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <li>
-                <a href='<%#Eval("Uri") %>'><%#Eval("Uri") %></a>
-                <br />
-                <%#Eval("Score") %>
-                <%#Eval("Title") %>
-            </li>
-        </ItemTemplate>
-        <FooterTemplate>
-        </ul>
-        </FooterTemplate>
-    </asp:Repeater>
-    <br />
-    <div class="pager"><%=RenderToHTML%></div>
+      
+         <div data-options="region:'center'" style="overflow: hidden">  
+            <div id="map">
+                <div id="popup" class="ol-popup">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <div id="popup-content"></div>
+                </div>
+            </div>
+            <!-- <div id="map-rightmenu" class="easyui-menu" style="width:120px;">
+                <div data-options="iconCls:'icon-add'" id="map-rightmenu-add" >添加</div>
+            </div>
+            <div id="map-dlg" class="easyui-dialog" title="添加" data-options="iconCls:'icon-add',closed:true,"
+                 style="width:450px;height:auto;padding:10px">
+                <table id="addTbl" >    
+                </table>
+                <a href="#" id="submit-btn" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" style="float:right;">提交</a>
+            </div> -->
+            <div id="map-tab" class="easyui-tabs" data-options="tools:'#tab-tools',tabPosition:'left',headerWidth:80,tabWidth:80,tabHeight:30" style="position: absolute; top:200px;right:0px;">
+                <div title="图层管理" style="padding:5px;">
+                    <div id="layertree">
+                      
+                    </div>
+                </div>
+                <div title="测试" style="padding:5px;">
+                    <a href="#" class="easyui-linkbutton" data-options="" id="testGeoIndex">测试地理实体倒排文件</a>
+                </div>
+                <div title="搜索结果" style="padding:5px;">
+                    <div id="">
+                    <text id="shouResult">显示搜索结果</text>
+                    <asp:Repeater ID="dataRepeater" runat="server" EnableViewState="true">
+		            <HeaderTemplate>
+		                <ul>
+		            </HeaderTemplate>
+		            <ItemTemplate>
+		                <li>
+		                    <a href='<%#Eval("Uri") %>'><%#Eval("Uri") %></a>
+		                    <br />
+		                    <%#Eval("Score") %>
+		                    <%#Eval("Title") %>
+		                </li>
+		            </ItemTemplate>
+		            <FooterTemplate>
+		            </ul>
+		            </FooterTemplate>
+		        </asp:Repeater>
+		        <br />
+		        <div class="pager"><%=RenderToHTML%></div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-tools"> 
+                <a href="javascript:void(0)" id="tab-collapse-btn" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-arrow-right'"></a>
+            </div>  
+        </div>
+        <div data-options="region:'south',collapsible:false" style="height:20px;">
+           <div class="top-center">军事项目组</div>
+        </div>
+    
 
     </form>
 </body>

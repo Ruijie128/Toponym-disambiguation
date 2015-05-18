@@ -60,11 +60,11 @@ namespace 站内搜索
 
 
             int totalCount = -1;
-            index(); //暂时注释  不建立索引
+          //  index(); //暂时注释  不建立索引
             List<SearchResult> list = search(kw);
             
           //  List<SearchResult> list = DoSearch(startRowIndex,pager.S,out totalCount);
-            pager.TotalCount = 500;
+            pager.TotalCount = 5;
             RenderToHTML = pager.RenderToHTML();
             dataRepeater.DataSource = list;
             dataRepeater.DataBind();
@@ -89,7 +89,7 @@ namespace 站内搜索
             QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
             Query query = parser.Parse(content);
 
-            TopDocs topdocs = search.Search(query, 500);
+            TopDocs topdocs = search.Search(query, 5);
             ScoreDoc[] scoreDocs = topdocs.scoreDocs;
             List<SearchResult> list = new List<SearchResult>();
             logger.Debug("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());

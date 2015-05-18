@@ -5104,3 +5104,153 @@ System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhan
 2015-05-17 23:53:45,685 [80] DEBUG 站内搜索.CreateIndex - 全部索引完毕
 2015-05-17 23:53:45,788 [80] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
 2015-05-18 01:02:38,771 [97] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:33:17,974 [6] DEBUG 站内搜索.CreateIndex - 开始建立索引
+2015-05-18 22:37:19,754 [6] DEBUG 站内搜索.CreateIndex - 全部索引完毕
+2015-05-18 22:37:19,985 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 22:37:21,868 [26] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 22:37:56,988 [11] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:38:30,701 [27] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 22:38:51,506 [11] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:39:00,221 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 22:51:30,731 [37] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:51:45,855 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 22:53:07,085 [5] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 22:54:56,730 [23] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:55:17,802 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:55:55,782 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:56:11,415 [22] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:56:34,135 [5] DEBUG 站内搜索.Global - Application_End
+2015-05-18 22:56:47,368 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 23:00:53,804 [29] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 23:02:49,202 [33] DEBUG 站内搜索.Global - Application_End
+2015-05-18 23:03:05,829 [5] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 23:03:33,241 [25] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 23:09:32,710 [36] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 23:09:33,289 [36] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 23:11:15,928 [33] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 23:11:31,691 [36] DEBUG 站内搜索.Global - Application_End
+2015-05-18 23:14:02,133 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-18 23:19:56,605 [29] DEBUG 站内搜索.Global - Application_End
+2015-05-18 23:20:04,782 [6] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 23:20:32,373 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-18 23:20:52,852 [6] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-18 23:23:03,158 [6] DEBUG 站内搜索.CreateIndex - 查询结果总数---7435  最大的评分--0.7589529
+2015-05-19 00:00:18,394 [45] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:01:27,916 [48] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.IO.IOException: 文件“E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\Log.log”正由另一进程使用，因此该进程无法访问此文件。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   在 System.Web.HttpResponse.TransmitFile(String filename, Int64 offset, Int64 length)
+   在 System.Web.StaticFileHandler.SendFile(String physicalPath, Int64 offset, Int64 length, Int64 fileLength, HttpContext context)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:01:55,215 [42] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:02:57,409 [38] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:03:01,444 [38] DEBUG 站内搜索.Global - Application_End
+2015-05-19 00:03:10,495 [5] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:06:00,631 [22] DEBUG 站内搜索.Global - Application_End
+2015-05-19 00:06:13,938 [6] DEBUG 站内搜索.Global - Application_End
+2015-05-19 00:06:23,155 [5] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:07:42,366 [7] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:09:02,675 [23] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:09:07,575 [23] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-05-19 00:09:22,086 [24] DEBUG 站内搜索.Global - 网络出现未处理异常:
+System.Web.HttpException (0x80004005): 文件不存在。
+   在 System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   在 System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   在 System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
