@@ -300,13 +300,24 @@ $(document).ready(function(){
     });
     
     var testGeoIndexLayer = null;
+    var jsonUrl = testGeoIndex();
+    // $.ajax({
+    //        url: jsonUrl, //向后端发送请求：倒排索引数据
+    //        type: "GET",  
+    //        encode:'gbk',    
+    //        success: getPlaces,
+    //        error: function(){
+    //            alert("Url error");
+    //         }
+    //     }); 
     $("#testGeoIndex").click(function(){
         $.ajax({
-           url: "testGeoIndex/", //向后端发送请求：倒排索引数据
-           type: "GET",      
+           url: jsonUrl, //向后端发送请求：倒排索引数据
+           type: "GET",  
+           encode:'gbk',    
            success: getPlaces,
            error: function(){
-               alert("error");
+               alert("Url error");
             }
         });        
     });
@@ -321,8 +332,20 @@ $(document).ready(function(){
         return ["hsla(",hue,",100%,50%,0.4)"].join("");
     }
     function getPlaces(data, textStatus) {
-        if(data["status"] != "ok")
-            alert("error");
+        // alert(data);
+        console.info("data: "+data);
+        var obj = eval("("+data+")");
+        console.info(obj.constructor);
+        console.info(obj.status);
+        var testdata = obj.data;
+        console.info("testdata "+ testdata.data_count);
+
+        console.info("testdata "+obj.data);
+        if(obj.status == "ok")
+            console.info("come in");
+        if(obj.status != "ok")
+            alert("getPlaces error");
+
         
         if(testGeoIndexLayer != null)
             map.removeLayer(testGeoIndexLayer);
@@ -342,28 +365,37 @@ $(document).ready(function(){
         }));
         
         
-        var testdata = data["data"];
+        
         var min = 0;
         var max = 0;
-        for(var i=0; i<testdata.length; i++) {
-            var item = testdata[i];        
+        
+        for(var i=0; i<1; i++) {
+            var item = testdata;  
+            console.info("item "+item);
+               
             var geometries = new Array();
-            var geocodes = item["geocodes8"].split(",");
+            var geocodes = item.geocodes8.split(",");
             var geocode;
             for(var j=0; j<geocodes.length; j++) {
+                console.info("geocodes.length"+ geocodes.length);
                 geocode = parseInt(geocodes[j]);
+                console.info("geocode "+geocode);
+                console.info("gridLayer.getSource().getFeatureById(geocode) "+gridLayer.getSource().getFeatureById(geocode));
                 geometries.push(gridLayer.getSource().getFeatureById(geocode).getGeometry());
             }
             var feature = new ol.Feature(new ol.geom.GeometryCollection(geometries));
-            feature.setId(item["name"] + ": " + item["count"]);
-            feature.setProperties({"count": item["count"]});
-            if(item["count"]<min) min = item["count"];
-            if(item["count"]>max) max = item["count"];
+            feature.setId(item.name + ": " + item.data_count);
+            feature.setProperties({"count": item.data_count});
+            if(item.data_count<min) min = item.data_count;
+            if(item.data_count>max) max = item.data_count;
+            console.info("feature "+ feature);
+            console.info("feature "+ item.data_count);
             vectorSource.addFeature(feature);
             
-            BaryGeocodeCenter = ol.extent.getCenter(gridLayer.getSource().getFeatureById(item['barygeocode8']).getGeometry().getExtent());           
+            console.info("item.barygeocode8" +gridLayer.getSource());
+            BaryGeocodeCenter = ol.extent.getCenter(gridLayer.getSource().getFeatureById(geocode).getGeometry().getExtent());           
             var feature = new ol.Feature(new ol.geom.Point((BaryGeocodeCenter)));
-            feature.setId(item["name"] + ": " + item["count"]);
+            feature.setId(item.name + ": " + item.name);
             vectorSource.addFeature(feature);
             
         } 

@@ -11,5 +11,6 @@ namespace 站内搜索.Test
         public string Score { get; set; }
         public string Uri { get; set; }
         public string Title { get; set; }
+        public string Date { get; set; }
     }
 }

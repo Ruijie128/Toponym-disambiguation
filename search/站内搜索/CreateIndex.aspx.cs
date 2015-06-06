@@ -22,6 +22,10 @@ using 站内搜索.Test;
 using PanGu;
 using Lucene.Net.Analysis;
 using System.Data;
+using MySql.Data.MySqlClient;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 
 namespace 站内搜索
@@ -30,10 +34,25 @@ namespace 站内搜索
     {
         private ILog logger = LogManager.GetLogger(typeof(CreateIndex));
         public string kw = string.Empty;
+        public int count = 0;//文档数目
         //RenderToHTML为输出的分页控件<a>..<a>
         protected string RenderToHTML { get; set; }
+        public class DataJson
+        {
+            public struct Data
+            {
+                public string name;
+                public int data_count;
+                public string geocodes8;
+                public string barygeocode8;
+            }
+            public Data data; 
+            public string status;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //时间控件
+            myRegisterTime.Attributes.Add("onfocus", "javascript:dateSelector()");
             //加载热词
 
             hotwordsRepeater.DataSource = new Dao.KeywordDao().GetHotWords();
@@ -60,14 +79,52 @@ namespace 站内搜索
 
 
             int totalCount = -1;
-          //  index(); //暂时注释  不建立索引
+        //    index(); //暂时注释  不建立索引
             List<SearchResult> list = search(kw);
-            
+            show_place();
+
+            List<SearchResult> targetList = Test.DateViewer.CaculateCount(DateTime.Parse("2009-01-01"), DateTime.Parse("2010-01-01"), list);
+            Test.DateViewer.newsCountForMonth(targetList);
           //  List<SearchResult> list = DoSearch(startRowIndex,pager.S,out totalCount);
             pager.TotalCount = 5;
             RenderToHTML = pager.RenderToHTML();
             dataRepeater.DataSource = list;
             dataRepeater.DataBind();
+        }
+
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+
+            myRegisterTime.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
+
+        }
+
+        private void show_place()
+        {
+            DataJson daJson = new DataJson();
+            daJson.data.name = kw.ToString();
+            daJson.data.data_count = count;
+            MySqlConnection mysql = new MySqlConnection("Database=gazetteer;Data Source=127.0.0.1;User Id=root;Password=zhangruijie;pooling=false;CharSet=utf8;port=3306");
+            string sqlStr = "select geocodes8,barygeocode8 from show_place where name = '" + kw+"'";
+            mysql.Open();
+            MySqlCommand comm = new MySqlCommand(sqlStr, mysql);
+            MySqlDataReader reader = comm.ExecuteReader();
+            if (reader.Read())
+            {
+                daJson.data.geocodes8 = reader[0].ToString();
+                daJson.data.barygeocode8 = reader[1].ToString();
+            }
+
+            mysql.Close();
+            daJson.status = "ok";
+
+          //  string sw = "{ \n" +"data:"+"{"+"name:"+das+"}"+ "\n }";
+            string text = JsonConvert.SerializeObject(daJson);
+            FileStream fs = new FileStream(@"E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\jason.txt", FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
+            sw.Write(text);
+            sw.Close();
+            fs.Close();
         }
 
         private List<SearchResult> search(string content) 
@@ -89,22 +146,24 @@ namespace 站内搜索
             QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
             Query query = parser.Parse(content);
 
-            TopDocs topdocs = search.Search(query, 5);
+            TopDocs topdocs = search.Search(query, 1000);
             ScoreDoc[] scoreDocs = topdocs.scoreDocs;
             List<SearchResult> list = new List<SearchResult>();
             logger.Debug("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());
+            count = topdocs.totalHits;
          //   Console.WriteLine("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());
             for (int i = 0; i < scoreDocs.Length; i++)
             {
                 int doc = scoreDocs[i].doc;
                 Document document = search.Doc(doc);
-                Console.WriteLine("id--" + scoreDocs[i].doc + "---scors--" + scoreDocs[i].score + "---uri--" + document.Get("link"));
+               // Console.WriteLine("id--" + scoreDocs[i].doc + "---scors--" + scoreDocs[i].score + "---uri--" + document.Get("link"));
                 string number = scoreDocs[i].doc.ToString();
                 string score = scoreDocs[i].score.ToString();
                 string uri = document.Get("link");
+                string date = document.Get("publishtime").ToString();
                 string title = "标题：" + document.Get("title").ToString() + document.Get("publishtime").ToString();
               //  SearchResult searcher = new SearchResult() { Number = number, Score = score, BodyPreview = Preview(body, kw) };
-                SearchResult searcher = new SearchResult() { Number = number, Score = score, Uri = uri, Title = title };
+                SearchResult searcher = new SearchResult() { Number = number, Score = score, Uri = uri, Title = title, Date = date };
                 list.Add(searcher);
             }
             

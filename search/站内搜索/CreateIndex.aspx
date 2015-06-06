@@ -29,6 +29,25 @@
                 select: function (event, ui) { $("#txtKeyword").val(ui.item.value); $("#form1").submit(); }
             });
         });
+        function getAbsolutePosition( element) {
+            var point = { x: element.offsetLeft, y: element.offsetBottom };
+            if (element.offsetParent) {
+                var parentPoint = this.getAbsolutePosition(element.offsetParent);
+                point.x += parentPoint.x;
+                point.y += parentPoint.y;
+            }
+            return point;
+        }
+        function dateSelector() {
+            var myTextbox = document.getElementById("<%=myRegisterTime.ClientID %>");
+            var point1 = getAbsolutePosition(myTextbox);
+            document.getElementById("caDiv").style.display = "block";
+            document.getElementById("caDiv").style.left = point1.x;
+            document.getElementById("caDiv").style.bottom = point1.y;
+        }
+        function divonClick() {
+            document.getElementById("caDiv").style.display = "none";
+        }
     </script>
      <style type="text/css">
         .pager {
@@ -57,19 +76,37 @@
             }
     </style>
 </head>
-<body>
-    <form id="form1">
+<body >
+    <form id="form1" runat="server">
     <div align="center">
         <img src="http://incubator.apache.org/lucene.net/images/lucene-medium.png"/>
     </div>
     <br />
     <br />
     <div align="center">
-        <input type="text" id="txtKeyword" name="kw" value='<%=kw %>'/>
+        <input type="text" id="txtKeyword" name="kw" value='<%=kw %>' tabindex="请输入要检索的地理实体"></input>
         <%-- <asp:Button ID="createIndexButton" runat="server" onclick="searchButton_Click" 
             Text="创建索引库" />--%>
         <input type="submit" name="searchButton" value="搜索" style="width: 91px" /><br />
+         <asp:TextBox id="myRegisterTime" runat="server" width="100"></asp:TextBox>
+     <div id="caDiv" style="display:none;" onclick="divonClick()">     
+               <asp:Calendar ID="Calendar1" runat="server"  BackColor="#FFFFCC" 
+                         BorderColor="#FFCC66" BorderWidth="1px" DayNameFormat="Shortest" 
+                         Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" Height="200px" 
+                         onselectionchanged="Calendar1_SelectionChanged" ShowGridLines="True" 
+                         Width="220px">
+                         <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                         <OtherMonthDayStyle ForeColor="#CC9966" />
+                         <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                         <SelectorStyle BackColor="#FFCC66" />
+                         <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" 
+                             ForeColor="#FFFFCC" />
+                         <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                     </asp:Calendar>
+             </div> 
     </div>
+    
     <br />
     <!--ul id="hotwordsUL">
           <asp:Repeater ID="hotwordsRepeater" runat="server">
@@ -128,6 +165,10 @@
 		        <br />
 		        <div class="pager"><%=RenderToHTML%></div>
                     </div>
+                </div>
+                <div title="图表" style="padding:5px;">
+                    <a href="#" class="easyui-linkbutton" data-options="" id="A1">图表</a>
+                    <iframe src="graph.html" width ="960px" height="600px"></iframe>
                 </div>
             </div>
             <div id="tab-tools"> 
