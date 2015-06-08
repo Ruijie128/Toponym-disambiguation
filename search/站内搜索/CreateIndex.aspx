@@ -79,12 +79,13 @@
 <body >
     <form id="form1" runat="server">
     <div align="center">
-        <img src="http://incubator.apache.org/lucene.net/images/lucene-medium.png"/>
+        <img src="http://localhost:2941/Geosearch_logo.gif"/>
     </div>
     <br />
     <br />
     <div align="center">
-        <input type="text" id="txtKeyword" name="kw" value='<%=kw %>' tabindex="请输入要检索的地理实体"></input>
+        <input type="text" id="txtKeyword" name="kw" value='<%=kw %>' placeholder="请输入要检索的地理实体"></input>
+        <input type="text" id="txtShip" name="kwShip" value='<%=kwShip %>' placeholder="请输入要检索的航母名称"></input>
         <%-- <asp:Button ID="createIndexButton" runat="server" onclick="searchButton_Click" 
             Text="创建索引库" />--%>
         <input type="submit" name="searchButton" value="搜索" style="width: 91px" /><br />

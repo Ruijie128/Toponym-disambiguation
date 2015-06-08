@@ -34,6 +34,7 @@ namespace 站内搜索
     {
         private ILog logger = LogManager.GetLogger(typeof(CreateIndex));
         public string kw = string.Empty;
+        public string kwShip = string.Empty;
         public int count = 0;//文档数目
         //RenderToHTML为输出的分页控件<a>..<a>
         protected string RenderToHTML { get; set; }
@@ -62,9 +63,16 @@ namespace 站内搜索
             {
                 return;
             }
+
+            kwShip = Request["kwShip"];
+            if (string.IsNullOrWhiteSpace(kwShip))
+            {
+                return;
+            }
             //处理：将用户的搜索记录加入数据库，方便统计热词
             Model.SerachKeyword model = new Model.SerachKeyword();
             model.Keyword = kw;
+            model.ShipKeyword = kwShip;
             model.SearchDateTime = DateTime.Now;
             model.ClinetAddress = Request.UserHostAddress;
 
@@ -80,7 +88,7 @@ namespace 站内搜索
 
             int totalCount = -1;
         //    index(); //暂时注释  不建立索引
-            List<SearchResult> list = search(kw);
+            List<SearchResult> list = search(kw, kwShip);
             show_place();
 
             List<SearchResult> targetList = Test.DateViewer.CaculateCount(DateTime.Parse("2009-01-01"), DateTime.Parse("2010-01-01"), list);
@@ -127,7 +135,7 @@ namespace 站内搜索
             fs.Close();
         }
 
-        private List<SearchResult> search(string content) 
+        private List<SearchResult> search(string keyword, string shipword) 
         {
             string indexPath = "E:/Index";
             //Directory directory = FSDirectory.Open(new File(indexPath));
@@ -143,10 +151,18 @@ namespace 站内搜索
        //     IndexReader reader = IndexReader.Open(directory, true);
             IndexReader reader = DirectoryReader.Open(directory);
             IndexSearcher search = new IndexSearcher(reader);
-            QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
-            Query query = parser.Parse(content);
+        /*    QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
+            Query query = parser.Parse(keyword);
+            TopDocs topdocs = search.Search(query, 1000); */
+            //多种field查询
+            string[] queryString = { kw, shipword }; //地理位置 航母号 时间
+            string[] fields = { "content", "content" };
+            BooleanClause.Occur[] flags = {BooleanClause.Occur.MUST, BooleanClause.Occur.MUST };
+         //   Query muly = QueryParser.Parse(queryString, fields,flags, new PanGuAnalyzer());
+            Query multiQuery = MultiFieldQueryParser.Parse(Lucene.Net.Util.Version.LUCENE_29, queryString, fields, flags, new PanGuAnalyzer());
+            TopDocs topdocs = search.Search(multiQuery, 1000);
+            
 
-            TopDocs topdocs = search.Search(query, 1000);
             ScoreDoc[] scoreDocs = topdocs.scoreDocs;
             List<SearchResult> list = new List<SearchResult>();
             logger.Debug("查询结果总数---" + topdocs.totalHits + "  最大的评分--" + topdocs.GetMaxScore());

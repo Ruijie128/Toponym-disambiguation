@@ -71,8 +71,8 @@ E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\PanGu
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\Quartz.xml
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\obj\Debug\站内搜索.dll
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\obj\Debug\站内搜索.pdb
-E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\obj\Debug\站内搜索.csprojResolveAssemblyReference.cache
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\MySql.Data.dll
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\Newtonsoft.Json.dll
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\Newtonsoft.Json.pdb
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\bin\Newtonsoft.Json.xml
+E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\obj\Debug\站内搜索.csprojResolveAssemblyReference.cache
