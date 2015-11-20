@@ -110,7 +110,7 @@ d3.tsv("http://localhost:2941/data.tsv", function(error, data) {
     // Copy-on-write since tweens are evaluated after a delay.  function(a, b) { return d3.ascending(a.month, b.month); }
     var x0 = x.domain(data.sort(this.checked
         ? function(a, b) { return b.number - a.number; }
-        : function(a) { return a.month; })
+        : function(a, b) { return  a.month - b.month; })
         .map(function(d) { return d.month; }))
         .copy();
 

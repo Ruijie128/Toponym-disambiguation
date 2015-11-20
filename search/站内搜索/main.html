@@ -1,7 +1,7 @@
 <!DOCTYPE >
 <html>
     <head>
-        <meta http-equiv='Content-Type' content='text/html; charset=gbk'>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
         <title>数据显示</title>
         <script type="text/javascript" src="static/easyui/js/jquery.min.js"></script>      
@@ -17,7 +17,35 @@
         <link rel='stylesheet' type='text/css' href="css/main.css" />
     </head>
     <body class="easyui-layout">
+        <div id = "right" style="float:right; width:30%; background:#ccc; position:absolute; height:100%" >
+         
+        <div title="搜索结果" style="padding:5px;">
+                    <div id="">
+                        <text id="shouResult">显示搜索结果</text>
+                        <asp:Repeater ID="dataRepeater" runat="server" EnableViewState="true">
+                        <HeaderTemplate>
+                            <ul>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li>
+                                <a href='<%#Eval("Uri") %>'><%#Eval("Uri") %></a>
+                                <br />
+                                <%#Eval("Score") %>
+                                <%#Eval("Title") %>
+                            </li>
+                        </ItemTemplate>
+                        
+                    </asp:Repeater>
+                    <br />
+                    <div class="pager"><%=RenderToHTML%></div>
+                    </div>
+                </div>
+        </div>
+         <div id="left" style="float:left;background:#ccc;  width:70%; height:100%">
+          
         <div data-options="region:'center'" style="overflow: hidden">  
+        
+       
             <div id="map">
                 <div id="popup" class="ol-popup">
                     <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -46,6 +74,7 @@
             <div id="tab-tools"> 
                 <a href="javascript:void(0)" id="tab-collapse-btn" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-arrow-right'"></a>
             </div>  
+            </div >
         </div>
         <div data-options="region:'south',collapsible:false" style="height:20px;">
            <div class="top-center">wanglin @2014</div>

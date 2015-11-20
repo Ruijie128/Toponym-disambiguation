@@ -18,3 +18,4 @@ E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\MSHtmlTest\obj\x86\Deb
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csproj.GenerateResource.Cache
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\MSHtmlTest\obj\x86\Debug\MSHtmlTest.exe
 E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\MSHtmlTest\obj\x86\Debug\MSHtmlTest.pdb
+E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\MSHtmlTest\obj\x86\Debug\MSHtmlTest.csprojResolveAssemblyReference.cache

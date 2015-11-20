@@ -12,8 +12,8 @@ namespace 站内搜索.Test
         // 在一段时间内 对新闻文本进行展示
         public static List<SearchResult> CaculateCount(DateTime fromTime, DateTime toTime, List<SearchResult> list)
         {
-            fromTime = DateTime.Parse("2010-01-01");
-            toTime = DateTime.Parse("2010-12-31");
+          //  fromTime = DateTime.Parse("2010-01-01");
+        //    toTime = DateTime.Parse("2010-12-31");
 
             //首先找到在目标日期中的所有新闻文本
             List<SearchResult> targetList = new List<SearchResult>();
@@ -52,18 +52,18 @@ namespace 站内搜索.Test
             string header = "month	number";
             FileStream fs = new FileStream(@"E:\users\zhang Ruijie\codes\Toponym-disambiguation\search\站内搜索\data.tsv", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
-            string january = "Jan	"+list[0].ToString();
-            string february = "Feb	" + list[1].ToString();
-            string march = "Mar	" + list[2].ToString();
-            string april = "Apr	" + list[3].ToString();
-            string may = "May	" + list[4].ToString();
-            string june = "Jun	" + list[5].ToString();
-            string july = "Jul	" + list[6].ToString();
-            string august = "Aug	" + list[7].ToString();
-            string september = "Sep	" + list[8].ToString();
-            string october = "Oct	" + list[9].ToString();
-            string november = "Nov	" + list[10].ToString();
-            string december = "Dec	" + list[11].ToString();
+            string january = "1	"+list[0].ToString();
+            string february = "2	" + list[1].ToString();
+            string march = "3	" + list[2].ToString();
+            string april = "4	" + list[3].ToString();
+            string may = "5	" + list[4].ToString();
+            string june = "6	" + list[5].ToString();
+            string july = "7	" + list[6].ToString();
+            string august = "8	" + list[7].ToString();
+            string september = "9	" + list[8].ToString();
+            string october = "10	" + list[9].ToString();
+            string november = "11	" + list[10].ToString();
+            string december = "12	" + list[11].ToString();
             sw.WriteLine(header);
             sw.WriteLine(january);
             sw.WriteLine(february);

@@ -157,7 +157,7 @@ $(document).ready(function(){
     var url = gridLayer8();; //向后端发送请求：网格文件数据
     var tempSource = new ol.source.GeoJSON({
         projection: 'EPSG:3857',
-        url: url
+        url: './gridLayer8int.geojson'
     });
     
     gridLayer.setSource(tempSource);
@@ -300,7 +300,7 @@ $(document).ready(function(){
     });
     
     var testGeoIndexLayer = null;
-    var jsonUrl = testGeoIndex();
+    // var jsonUrl =  "http://localhost:2941/jason.txt";
     // $.ajax({
     //        url: jsonUrl, //向后端发送请求：倒排索引数据
     //        type: "GET",  
@@ -310,16 +310,18 @@ $(document).ready(function(){
     //            alert("Url error");
     //         }
     //     }); 
+    getPlaces();
     $("#testGeoIndex").click(function(){
-        $.ajax({
-           url: jsonUrl, //向后端发送请求：倒排索引数据
-           type: "GET",  
-           encode:'gbk',    
-           success: getPlaces,
-           error: function(){
-               alert("Url error");
-            }
-        });        
+        // $.ajax({
+        //    url: jsonUrl, //向后端发送请求：倒排索引数据
+        //    type: "GET",  
+        //    encode:'gbk',    
+        //    success: getPlaces,
+        //    error: function(){
+        //        alert("Url error");
+        //     }
+        // });     
+        getPlaces();
     });
     
     function getColor(value, min, max){
@@ -331,8 +333,10 @@ $(document).ready(function(){
         var hue=((1-value)*120).toString(10);
         return ["hsla(",hue,",100%,50%,0.4)"].join("");
     }
-    function getPlaces(data, textStatus) {
-        // alert(data);
+    function getPlaces() {
+        // alert(data); 
+        // data, textStatus
+        var data = '{"data":{"name":"红海","data_count":8,"geocodes8":"85286917943328768,87820192733724672,88101667710435328,88383142687145984,88664617663856640,109493765940445184,109775240917155840,110056715893866496,111182615800709120,111464090777419776,111745565754130432,112027040730841088,112308515707551744,112589990684262400,112871465660973056,113152940637683712,114841790497947648,117375065288343552,117656540265054208,117938015241764864,118219490218475520,118500965195186176,118782440171896832,119626865102028800","barygeocode8":"111745565754130432"},"status":"ok"}';
         console.info("data: "+data);
         var obj = eval("("+data+")");
         console.info(obj.constructor);

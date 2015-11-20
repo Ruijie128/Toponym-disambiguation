@@ -23,7 +23,7 @@ using PanGu;
 using Lucene.Net.Analysis;
 using System.Data;
 using MySql.Data.MySqlClient;
-using System.Text;
+
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -35,6 +35,12 @@ namespace 站内搜索
         private ILog logger = LogManager.GetLogger(typeof(CreateIndex));
         public string kw = string.Empty;
         public string kwShip = string.Empty;
+        public string fromDate = string.Empty;
+        public string toDate = string.Empty;
+        public static int targetResultCount = 0;
+        public static double lat = 0;
+        public static double lon = 0;
+
         public int count = 0;//文档数目
         //RenderToHTML为输出的分页控件<a>..<a>
         protected string RenderToHTML { get; set; }
@@ -53,22 +59,21 @@ namespace 站内搜索
         protected void Page_Load(object sender, EventArgs e)
         {
             //时间控件
-            myRegisterTime.Attributes.Add("onfocus", "javascript:dateSelector()");
+         //   myRegisterTime.Attributes.Add("onfocus", "javascript:dateSelector()");
             //加载热词
 
             hotwordsRepeater.DataSource = new Dao.KeywordDao().GetHotWords();
             hotwordsRepeater.DataBind();
             kw = Request["kw"];
-            if (string.IsNullOrWhiteSpace(kw))
+            kwShip = Request["kwShip"];
+            fromDate = Request["fromDate"];
+            toDate = Request["toDate"];
+            if (string.IsNullOrWhiteSpace(kw) && string.IsNullOrWhiteSpace(kwShip))
             {
                 return;
             }
 
-            kwShip = Request["kwShip"];
-            if (string.IsNullOrWhiteSpace(kwShip))
-            {
-                return;
-            }
+         
             //处理：将用户的搜索记录加入数据库，方便统计热词
             Model.SerachKeyword model = new Model.SerachKeyword();
             model.Keyword = kw;
@@ -89,9 +94,11 @@ namespace 站内搜索
             int totalCount = -1;
         //    index(); //暂时注释  不建立索引
             List<SearchResult> list = search(kw, kwShip);
+            targetResultCount = list.Count;
             show_place();
+            searchForLatln(kw);
 
-            List<SearchResult> targetList = Test.DateViewer.CaculateCount(DateTime.Parse("2009-01-01"), DateTime.Parse("2010-01-01"), list);
+            List<SearchResult> targetList = Test.DateViewer.CaculateCount(DateTime.Parse(fromDate), DateTime.Parse(toDate), list);
             Test.DateViewer.newsCountForMonth(targetList);
           //  List<SearchResult> list = DoSearch(startRowIndex,pager.S,out totalCount);
             pager.TotalCount = 5;
@@ -103,8 +110,24 @@ namespace 站内搜索
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
 
-            myRegisterTime.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
+         //   myRegisterTime.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
 
+        }
+
+        public static void searchForLatln(string place_name)
+        {
+            MySqlConnection mysqlConn = new MySqlConnection("Database=gazetteer;Data Source=127.0.0.1;User Id=root;Password=zhangruijie;pooling=false;CharSet=utf8;port=3306");
+            mysqlConn.Open();
+            string sqlStr = "select lat, lon, count from location where place_name = '" + place_name + "'";
+            MySqlCommand comm = new MySqlCommand(sqlStr, mysqlConn);
+            MySqlDataReader read = comm.ExecuteReader();
+            if (read.Read())
+            {
+                lat = Convert.ToDouble(read[0]);
+                lon = Convert.ToDouble(read[1]);
+               // targetResultCount = Convert.ToInt32(read[2]);
+            }
+            mysqlConn.Close();
         }
 
         private void show_place()
@@ -151,16 +174,32 @@ namespace 站内搜索
        //     IndexReader reader = IndexReader.Open(directory, true);
             IndexReader reader = DirectoryReader.Open(directory);
             IndexSearcher search = new IndexSearcher(reader);
+            TopDocs topdocs = null;
         /*    QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29,"content", new PanGuAnalyzer());
             Query query = parser.Parse(keyword);
             TopDocs topdocs = search.Search(query, 1000); */
-            //多种field查询
-            string[] queryString = { kw, shipword }; //地理位置 航母号 时间
-            string[] fields = { "content", "content" };
-            BooleanClause.Occur[] flags = {BooleanClause.Occur.MUST, BooleanClause.Occur.MUST };
+
+            // 认为地理名词与航母至少有一个不为空
+            string temp = null;
+            if ((keyword == "") || (shipword == ""))
+            {
+                temp = keyword + shipword;
+                QueryParser parser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29, "content", new PanGuAnalyzer());
+                Query query = parser.Parse(temp);
+                topdocs = search.Search(query, 1000);
+            }
+            else if ((keyword != "") && (shipword != ""))
+            {
+                //多种field查询
+                string[] queryString = { kw, shipword }; //地理位置 航母号 时间
+                string[] fields = { "content", "content" };
+                BooleanClause.Occur[] flags = { BooleanClause.Occur.MUST, BooleanClause.Occur.MUST };
+                Query multiQuery = MultiFieldQueryParser.Parse(Lucene.Net.Util.Version.LUCENE_29, queryString, fields, flags, new PanGuAnalyzer());
+                topdocs = search.Search(multiQuery, 1000);
+            }
+            
          //   Query muly = QueryParser.Parse(queryString, fields,flags, new PanGuAnalyzer());
-            Query multiQuery = MultiFieldQueryParser.Parse(Lucene.Net.Util.Version.LUCENE_29, queryString, fields, flags, new PanGuAnalyzer());
-            TopDocs topdocs = search.Search(multiQuery, 1000);
+           
             
 
             ScoreDoc[] scoreDocs = topdocs.scoreDocs;

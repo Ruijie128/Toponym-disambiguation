@@ -1,6 +1,6 @@
 function gridLayer8() {
 	//return "http://localhost:8080/examples/json/gridLayer8int.geojson";
-	return "http://localhost:2941/gridLayer8int.geojson";
+	// return "http://localhost:2941/gridLayer8int.geojson";
 }
 
 function testGeoIndex(){
@@ -58,6 +58,6 @@ function testGeoIndex(){
     }
     result.append({"data": data, "status":"ok"});
     return HttpResponse(json.dumps(result), content_type="application/json") ; */
-    return "http://localhost:2941/jason.txt";
+    // return "http://localhost:2941/jason.txt";
 
  }
